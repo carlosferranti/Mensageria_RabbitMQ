@@ -24,7 +24,17 @@ consumer.Received += (model, ea) =>
     var body = ea.Body.ToArray();
     var message = Encoding.UTF8.GetString(body);
 
-    Console.WriteLine($"Mensagem recebida: {message}");
+    // Extrai o nome do arquivo da mensagem
+    var fileNameBytes = ea.BasicProperties.Headers["FileName"] as byte[];
+    var fileName = Encoding.UTF8.GetString(fileNameBytes);
+
+    // Escreve o conteúdo da mensagem em um arquivo no diretório especificado
+    string directoryPath = @"C:\Users\carlo\source\Mensageria_RabbitMQ\files";
+    string filePath = Path.Combine(directoryPath, fileName);
+    File.WriteAllText(filePath, message);
+
+    Console.WriteLine($"Arquivo XML recebido e salvo em: {filePath}");
+    Console.WriteLine($"Conteúdo do arquivo XML: {message}");
 };
 
 channel.BasicConsume(

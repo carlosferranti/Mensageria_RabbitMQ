@@ -35,10 +35,16 @@ while (true)
         var xmlContent = File.ReadAllText(filePath);
         var body = Encoding.UTF8.GetBytes(xmlContent);
 
+        var fileName = Path.GetFileName(filePath);
+        var properties = channel.CreateBasicProperties();
+        properties.Persistent = true; // Faz a mensagem persistir em caso de reinicialização do RabbitMQ
+        properties.Headers = new Dictionary<string, object>();
+        properties.Headers.Add("FileName", fileName); // Adiciona o nome do arquivo nas propriedades da mensagem
+
         channel.BasicPublish(
             exchange: "",
             routingKey: "fila_mensagem",
-            basicProperties: null,
+            basicProperties: properties,
             body: body);
 
         Console.WriteLine($"Arquivo XML foi enviado: {filePath}");
