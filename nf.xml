@@ -1,0 +1,46 @@
+<nota_fiscal>
+    <informacoes_gerais>
+        <data_emissao>2024-05-10</data_emissao>
+        <numero_nf>NF1234567890</numero_nf>
+        <serie>001</serie>
+        <natureza_operacao>Venda de mercadoria</natureza_operacao>
+        <forma_pagamento>Dinheiro</forma_pagamento>
+    </informacoes_gerais>
+    <cliente>
+        <nome>Cliente Exemplo</nome>
+        <endereco>Rua das Flores, 123</endereco>
+        <cidade>Cidade Feliz</cidade>
+        <uf>UF</uf>
+        <cep>12345-678</cep>
+        <cpf>123.456.789-00</cpf>
+        <telefone>(00) 1234-5678</telefone>
+    </cliente>
+    <itens>
+        <item>
+            <numero>1</numero>
+            <descricao>Produto A</descricao>
+            <codigo_produto>A123</codigo_produto>
+            <unidade>UN</unidade>
+            <quantidade>2</quantidade>
+            <preco_unitario>50.00</preco_unitario>
+            <subtotal>100.00</subtotal>
+        </item>
+        <!-- Outros itens aqui -->
+    </itens>
+    <total>
+        <subtotal>380.00</subtotal>
+        <desconto>0.00</desconto>
+        <acrescimo>0.00</acrescimo>
+        <total>380.00</total>
+    </total>
+    <impostos>
+        <valor_icms>38.00</valor_icms>
+        <valor_pis>3.80</valor_pis>
+        <valor_cofins>17.10</valor_cofins>
+        <!-- Outros impostos aqui -->
+    </impostos>
+    <observacoes>
+        <observacao>Pagamento em dinheiro.</observacao>
+        <observacao>Não nos responsabilizamos por mercadorias após a entrega.</observacao>
+    </observacoes>
+</nota_fiscal>
